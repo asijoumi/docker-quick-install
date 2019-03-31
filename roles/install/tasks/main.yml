@@ -1,0 +1,14 @@
+---
+# file: roles/install/tasks/mail.yml
+
+- name: Install docker on CentOS
+  import_tasks: install_centos.yml
+  become: yes
+  #when: ansible_distribution == 'CentOS' or ansible_distribution == 'Red Hat Enterprise Linux'
+
+#- name: Install docker on Ubuntu
+#  import_tasks: install_ubuntu.yml
+#  become: yes
+#  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+
+...
