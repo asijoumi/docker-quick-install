@@ -1,0 +1,14 @@
+---
+# file: roles/install/tasks/mail.yml
+
+- name: Install docker on Ubuntu
+  import_tasks: install_ubuntu.yml
+  become: yes
+  when: ansible_distribution == 'Ubuntu' or ansible_distribution == 'Debian'
+
+- name: Get docker info
+  shell: docker info
+  register: docker_info
+  changed_when: false
+
+...
