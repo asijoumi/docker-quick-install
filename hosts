@@ -1,5 +1,8 @@
+[manager-first]
+manager1 ansible_host="18.223.125.142"
+
 [managers]
-#18.223.3.149 ansible_user=ubuntu ansible_ssh_private_key_file=~/.ssh/aimenec2.pem ansible_python_interpreter=/usr/bin/python3
-18.216.230.35 ansible_user=ec2-user ansible_ssh_private_key_file=~/.ssh/aimenec2.pem
 
 [workers]
+worker1 ansible_host="18.224.34.32"
+worker2 ansible_host="3.17.157.194"
