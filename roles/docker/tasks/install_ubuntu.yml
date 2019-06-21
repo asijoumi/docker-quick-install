@@ -1,0 +1,48 @@
+---
+# file: roles/install/tasks/install_ubuntu.yml
+
+- name: Remove old version of docker
+  apt:
+    name: "{{ packages }}"
+    state: absent
+  vars:
+    packages:
+    - docker
+    - docker-engine
+    - docker.io
+    - containerd
+    - runc
+
+- name: Install docker dependencies
+  apt:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+
+- name: Add docker key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker APT repository
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
+
+- name: Install Docker CE
+  apt:
+    name: docker-ce
+    state: present
+
+- name: Add {{ ansible_user }} to docker group
+  user:
+    name: "{{ ansible_user }}"
+    group: docker
+
+- name: Reset ssh reset_connection
+  meta: reset_connection

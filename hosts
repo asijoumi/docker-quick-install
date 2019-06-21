@@ -1,0 +1,8 @@
+[manager-first]
+manager1 ansible_host="<Manager IP>" ansible_user="<user>"
+
+[managers]
+
+[workers]
+worker1 ansible_host="<Worker1 IP>" ansible_user="<user>"
+worker2 ansible_host="<Worker2 IP>" ansible_user="<user>"

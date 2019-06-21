@@ -1,0 +1,21 @@
+---
+- name: Docker installation
+  hosts: all
+  roles:
+    - docker
+
+- name: Setup swarm
+  hosts: manager-first
+  roles:
+    - swarm
+
+- name: Join managers
+  hosts: managers
+  roles:
+    - managers
+
+- name: Join workers
+  hosts: workers
+  roles:
+    - workers
+...
