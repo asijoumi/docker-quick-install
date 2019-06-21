@@ -1,8 +1,8 @@
 [manager-first]
-manager1 ansible_host="18.223.125.142"
+manager1 ansible_host="<Manager IP>" ansible_user="<user>"
 
 [managers]
 
 [workers]
-worker1 ansible_host="18.224.34.32"
-worker2 ansible_host="3.17.157.194"
+worker1 ansible_host="<Worker1 IP>" ansible_user="<user>"
+worker2 ansible_host="<Worker2 IP>" ansible_user="<user>"
