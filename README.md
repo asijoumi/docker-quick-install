@@ -11,13 +11,13 @@ Actually, the playbook works with theses linux distributions:
 Other distributions will be implemented later.
 
 ## Configuration
-You should have to edit some files to run the playbook. The following wil explain what file change.
+You have to edit some files to run the playbook. The following description explain what changes have to be done.
 
 ### Files
 
 #### group_vars
 
-You should edit the group_vars/all.yml:
+Edit the group_vars/all.yml:
 * ansible_ssh_private_key_file: set you private key
 
 Example:
@@ -26,13 +26,13 @@ ansible_ssh_private_key_file: "/home/aimen/.ssh/aimen_ec2.pem"
 ```
 
 #### hosts
-You should edit the hosts file:
-* manager1: add the ansible_host and user (user into the machine)
+Edit the hosts file:
+* manager1: add the ansible_host and user
 * worker1: add the ansible_host and user
 
-You must have only one manager1, others managers could be declared to the managers group.
+You must have only one manager, other managers could be declared to the managers group.
 
-You can declare what number of workers you want.
+You can declare any number of workers you want.
 
 Example:
 ```
@@ -50,7 +50,7 @@ worker2 ansible_host="3.17.157.194" ansible_user="ubuntu"
 ### Security
 
 #### AWS
-If you want to run this playbook to AWS, you should have theses opened ports :
+If you want to run this playbook to AWS, you should have those opened ports :
 * TCP 22
 * TCP 2376
 * TCP 2377
